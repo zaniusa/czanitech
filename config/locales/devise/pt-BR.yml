@@ -1,0 +1,82 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+pt-BR:
+  devise:
+    failure:
+      already_authenticated: 'Você já está logado.'
+      unauthenticated: 'Efetue o login ou cadastre-se para continuar.'
+      unconfirmed: 'Você deve confirmar a sua conta antes de continuar.'
+      locked: 'Sua conta está bloqueada.'
+      not_found_in_database: 'Usuário ou senha inválidos.'
+      invalid: 'Usuário ou senha inválidos.'
+      not_found_in_database: 'Usuário ou senha inválidos.'
+      invalid_token: 'Token de autenticação inválido.'
+      timeout: 'Sua sessão expirou, por favor, faça seu login novamente.'
+      inactive: 'Sua conta ainda não foi ativada.'
+    sessions:
+      signed_in: 'Seja bem vindo.'
+      signed_out: 'Logout realizado com sucesso.'
+      remember_me: 'Lembrar-me'
+    passwords:
+      send_instructions: 'Você receberá um email com instruções de como resetar sua senha em alguns minutos.'
+      updated: 'Senha alterada com sucesso. Você já está logado.'
+      updated_not_active: 'Sua senha foi alterada com sucesso.'
+      send_paranoid_instructions: "Se o seu email já estiver cadastrado, você receberá um link para recuperar sua senha em seu email"
+      reset_password: "Recuperar senha"
+      new_password: "Nova senha"
+      confirm_new_password: "Confirme a nova senha"
+      change_your_password: "Alterar minha senha"
+      change_my_password: "Alterar minha senha"
+      forgot_password: Esqueceu a senha? Clique aqui
+      recover_password: Digite seus dados para recuperar
+      resend_unlock_instructions: Reenviar instruções de desbloqueio
+      resend_confirmation_instructions: Reenviar email de confirmação
+    confirmations:
+      send_instructions: 'Você receberá um email com instruções sobre como confirmar sua conta em poucos minutos.'
+      send_paranoid_instructions: 'Se o seu email já estiver cadastrado, você receberá um email com instruçoes sobre como confirmar sua conta em poucos minutos.'
+      confirmed: 'Sua conta foi confirmada com sucesso. Você já está logado.'
+    registrations:
+      omniauth_alert: Esses dados foram importados da sua conta do %{provider}. Ao concluír seu cadastro, seus dados do %{provider} serão integrados com sua conta e você poderá usar sua conta do %{provider}, ou usar seus dados cadastrados abaixo para efetuar login no sistema.  
+      signed_up: 'Seja bem vindo! Seu cadastro foi realizado com sucesso.'
+      signed_up_but_unconfirmed: 'Uma mensagem com um link de confirmação foi enviada para seu email. Por favor, abra o link para ativar sua conta.'
+      signed_up_but_inactive: 'Seu cadastro foi realizado com sucesso. No entanto, não foi possível efetuar seu login porque a sua conta ainda não está ativada.'
+      signed_up_but_locked: 'Seu cadastro foi realizado com sucesso. No entanto, não foi possível efetuar seu login porque a sua conta está bloqueada.'
+      updated: 'Sua conta foi alterada com sucesso.'
+      update_needs_confirmation: "Sua conta foi atualizada com sucesso, mas precisamos confirmar seu novo email. Por favor verifique seu email e clique no link de confirmação para finalizar a alteração"
+      destroyed: 'Adeus! Sua conta foi cancelada com sucesso. Esperamos vê-lo de volta em breve.'
+    unlocks:
+      send_instructions: 'Você receberá um email com instruções de como desbloquear sua conta em alguns minutos.'
+      unlocked: 'Sua conta foi desbloqueada com sucesso. Por favor faça login para continuar.'
+      send_paranoid_instructions: 'Se essa conta existir, você receberá um email com instruções de como desbloqueála em alguns minutos.'
+    omniauth_callbacks:
+      success: 'Autorizado com sucesso por %{kind}.'
+      failure: 'Não foi possível autorizar o acesso pelo %{kind}. Causa: "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instruções de confirmação'
+        msg1: Seja bem vindo, %{user}!
+        msg2: Agora você pode confirmar sua conta clicando no link abaixo
+        confirm: Confirmar minha conta
+      reset_password_instructions:
+        subject: 'Instruções para recuperação de senha'
+        msg1: 'Olá, %{user}!'
+        msg2: 'Foi solicitada uma recuperação de senha. Você pode agora recuperar sua senha clicando no link abaixo'
+        msg3: 'Se você não solicitou esta alteração de senha, por favor, ignore este email.'
+        msg4: 'Se não conseguir alterar a senha através deste link, tente acessar o recuperar senha novamente no site para receber outro email com o link de confirmação'
+        action: 'Alterar minha senha'
+      unlock_instructions:
+        subject: 'Instruções para desbloqueio'
+        msg1: 'Olá, %{user}!'
+        msg2: 'Sua conta foi bloqueada por várias tentativas de login sem sucesso'
+        msg3: 'Clique no link abaixo para desbloquear sua conta'
+        action: 'Desbloquear minha conta'
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"

@@ -1,0 +1,38 @@
+<%= link_to 'Add New Price', new_pymtreceived_path, class: "btn btn-success" %>
+<br><br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Price Table</div>
+  <!-- Table -->
+  <table class="table table-striped table-bordered">
+
+    <thead>
+      <tr>
+        <th>Project Id</th>
+        <th>Amount</th>
+        <th>Control 1</th>
+        <th>Control 2</th>
+        <th><center>Action</center></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pymtreceiveds.each do |pymtreceived| %>
+        <tr>
+          <td width=10%><%= pymtreceived.project_id %></td>
+          <td width=20%><%= pymtreceived.amount %></td>
+          <td width=25%><%= pymtreceived.control_1 %></td>
+          <td width=25%><%= pymtreceived.control_2 %></td>
+          <td width=20% style="text-align:center" >
+            <div class="btn-group btn-group-sm">
+              <%= link_to 'Edit', edit_pymtreceived_path(pymtreceived), class: "btn btn-success" %>
+              <%= link_to ' Delete', pymtreceived, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+          </td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+<br>

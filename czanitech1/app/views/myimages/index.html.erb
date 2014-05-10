@@ -1,0 +1,47 @@
+<div class="col-md-12">
+
+  <div class="btn-group btn-group-md col-md-7 row" style="padding-bottom:5px">
+    <%= link_to 'Add New Image', new_myimage_path, class: "btn btn-success myshadow" %>
+  </div>
+  <div class="btn-group btn-group-sm col-me-5 myshadow">
+    <%= link_to 'All Images', show_all_myimages_path, class: "btn btn-default" %>
+    <%= link_to 'In Use', myimages_path, class: "btn btn-default" %>
+    <%= link_to 'Hidden', show_hidden_myimages_path, class: "btn btn-default" %>
+  </div>
+
+</div>
+
+<br>
+
+<div class="col-md-12 row">
+  <% @myimages.each do |myimage| %>
+    <center>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <center><%= myimage.image_name %> - <%= myimage.id %></center>
+          </div>
+          <div class="panel-body" style="height:400px">
+            <div class="field">
+              <div class="btn-group btn-group-sm">
+                <%= link_to 'Change Image', edit_myimage_path(myimage), class: "btn btn-success" %>
+                <%= link_to ' Delete', myimage, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              </div><br><br>
+              <div>
+                <%= image_tag myimage.image_url(:thumb).to_s %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </center>
+    <div id="openImage" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <%= image_tag myimage.image_url(:thumb).to_s %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

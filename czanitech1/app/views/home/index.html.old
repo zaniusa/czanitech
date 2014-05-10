@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <h2>CZani Tech</h2>	
+      <div class="jumbotron well">	        
+      	<div id="myCarousel" class="carousel slide">
+    		  <ol class="carousel-indicators">
+    		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    		    <li data-target="#myCarousel" data-slide-to="1"></li>
+    		    <li data-target="#myCarousel" data-slide-to="2"></li>
+    		  </ol>
+    		  <!-- Carousel items -->
+    		  <div class="carousel-inner">
+    		    <div class="active item">
+    		    	Image 1
+    		    </div>
+    		    <div class="item">Image 2</div>
+    		    <div class="item">Image 3</div>
+    		  </div>
+    		  <!-- Carousel nav -->
+    		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    		  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		    </div>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h3>Step 1</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h3>Step 2</h3>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <h3>Step 3</h3>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

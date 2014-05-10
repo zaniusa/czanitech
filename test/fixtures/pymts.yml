@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order_to_show: 9.99
+  pymt_status: MyText
+
+two:
+  order_to_show: 9.99
+  pymt_status: MyText

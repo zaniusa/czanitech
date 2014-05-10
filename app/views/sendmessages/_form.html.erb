@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="col-md-6">
+      <h3><%= t('contact.send_message') %></h3>
+      <%= form_for(@sendmessage) do |f| %>
+        <% if @sendmessage.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@sendmessage.errors.count, "error") %> prohibited this sendmessage from being saved:</h2>
+
+            <ul>
+            <% @sendmessage.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <br>
+        <div class="field">
+          <%= f.text_field :name, :autofocus => true, class: "form-control", placeholder: (t('contact.name')), :required => true %>
+        </div><br>
+        <div class="field">
+          <%= f.text_field :email, class: "form-control", placeholder: "Email", :required => true %>
+        </div><br>
+        <div class="field">
+          <%= f.text_area :message, class: "form-control", placeholder: (t('contact.your_message')), :required => true, :rows => 6 %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :user_id %>
+        </div><br>
+        <div class="actions">
+          <%= f.submit (t('contact.send_your_comment')), class: "btn btn-success" %>
+        </div><br>
+      <% end %>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-5">
+      <br><br>
+      <i class="fa fa-comments fa-5x"></i><br>
+      <h2><%= t('contact.lets_talk').html_safe %></h2><br>
+      <i class="fa fa-group fa-5x"></i>
+    </div>   
+  </div>
+</div>

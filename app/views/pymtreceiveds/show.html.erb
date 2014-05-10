@@ -1,0 +1,22 @@
+<p>
+  <strong>Amount:</strong>
+  <%= @pymtreceived.amount %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @pymtreceived.project_id %>
+</p>
+
+<p>
+  <strong>Control 1:</strong>
+  <%= @pymtreceived.control_1 %>
+</p>
+
+<p>
+  <strong>Control 2:</strong>
+  <%= @pymtreceived.control_2 %>
+</p>
+
+<%= link_to 'Edit', edit_pymtreceived_path(@pymtreceived) %> |
+<%= link_to 'Back', pymtreceiveds_path %>

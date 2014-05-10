@@ -1,0 +1,54 @@
+<div class="col-lg-12">
+	<div class="col-lg-12">
+	  <h2 class="page-header"><%= t('pricing.pricing_table') %></h2>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+		  <div class="panel panel-default text-center">
+		    <div class="panel-heading">
+		      <strong><%= t('pricing.option1') %></strong>
+		    </div>
+		    <div class="panel-body">
+		      <h3 class="panel-title price"><%= t('pricing.price1') %></h3>
+		    </div>
+		    <ul class="list-group">
+		      <li class="list-group-item"><%= t('pricing.up_to_90') %></li>
+		      <li class="list-group-item"><%= t('pricing.add_your_logo') %></li>
+		      <li class="list-group-item"><b>X</b></li>
+		      <li class="list-group-item"><%= t('pricing.more_than') %></li>
+		      <li class="list-group-item"><b>X</b></li>
+		      <li class="list-group-item"><%= link_to (t('pricing.register_now_decide_later')), register_path, class: "btn btn-success" %></li>
+		    </ul>
+		  </div>          
+		</div>
+		<div class="col-sm-3">
+		  <div class="panel panel-default text-center">
+		    <div class="panel-heading">
+		      <strong><%= t('pricing.option2') %> <span class="label label-success"><%= t('pricing.best_value') %></span></strong>
+		    </div>
+		    <div class="panel-body">
+		      <h3 class="panel-title price"><%= t('pricing.price2') %></h3>
+		    </div>
+		    <ul class="list-group">
+		      <li class="list-group-item"><%= t('pricing.up_to_90') %></li>
+		      <li class="list-group-item"><%= t('pricing.add_your_logo') %></li>
+		      <li class="list-group-item"><%= t('pricing.add_external') %></li>
+		      <li class="list-group-item"><%= t('pricing.more_than') %></li>
+		      <li class="list-group-item"><%= t('pricing.voice_over') %></li>
+		      <li class="list-group-item"><%= link_to (t('pricing.register_now_decide_later')), register_path, class: "btn btn-success" %></li>
+		    </ul>
+		  </div>          
+		</div>
+		<div class="col-md-6">
+			<br><br>
+			<i class="fa fa-money fa-5x"></i><br>
+			<h2><%= t('pricing.if_you_need').html_safe %></h2><br>
+			<i class="fa fa-heart fa-5x"></i><br><br>
+			<%= link_to (t('site.contact_us')), send_path, class: "btn btn-success" %>
+		</div> 
+	</div>
+</div>
+
+
+

@@ -1,0 +1,12 @@
+<p>
+  <strong>Order to show:</strong>
+  <%= @pymt.order_to_show %>
+</p>
+
+<p>
+  <strong>Pymt status:</strong>
+  <%= @pymt.pymt_status %>
+</p>
+
+<%= link_to 'Edit', edit_pymt_path(@pymt) %> |
+<%= link_to 'Back', pymts_path %>

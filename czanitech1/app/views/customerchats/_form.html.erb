@@ -1,0 +1,33 @@
+<%= form_for(@customerchat) do |f| %>
+  <% if @customerchat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customerchat.errors.count, "error") %> prohibited this customerchat from being saved:</h2>
+
+      <ul>
+      <% @customerchat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chattext %><br>
+    <%= f.text_field :chattext %>
+  </div>
+  <div class="field">
+    <%= f.label :chataux %><br>
+    <%= f.text_field :chataux %>
+  </div>
+  <div class="field">
+    <%= f.label :producer_id %><br>
+    <%= f.number_field :producer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

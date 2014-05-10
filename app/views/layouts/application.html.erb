@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Czanitech</title>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CZani Tech</title>
+
+  </head>
+  <body>
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+          <a class="navbar-brand logo" href="/">
+            <label class="font-orange">Vid</label><label class="font-white">55</label><i class="fa fa-chevron-circle-right"></i>
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to (t('site.price')), price_index_path %></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=(t('site.contact_us'))%><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to (t('site.contact_us')), send_path %></li>
+                <li><%= link_to (t('site.about_us')), about_index_path %></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+    				<% if user_signed_in? %>
+              <% if current_user.admin? %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to (t('site.movie_links')), movielinks_path %></li>
+                    <li><%= link_to (t('site.project_statuses')), projstatuses_path %></li>
+                    <li><%= link_to (t('site.payment_statuses')), pymts_path %></li>
+                    <li><%= link_to (t('site.accounting')), pymtreceiveds_path %></li>
+                    <li><%= link_to (t('site.users')), allusers_path %></li>
+                  </ul>
+                </li>
+              <% end %>
+              <li><%= link_to (t('site.projects')), scripts_path %></li>
+              <li><%= link_to (t('site.my_images')), myimages_path %></li>
+    					<li><%= link_to current_user.first_name, 
+    					edit_path %></li>
+    					<li><%= link_to (t('site.log_out')), logout_path %>
+    					</li>
+    				<% else %>
+    					<li><%= link_to (t('site.register')), register_path %>
+    					</li>
+    					<li><%= link_to (t('site.login')), login_path %>
+    					</li>
+    				<% end %>
+            </li>
+            <li>
+              <%= link_to image_tag("flag_eua.png", :border=>0), root_path(locale: 'eng') %>
+            </li>
+            <li>
+              <%= link_to image_tag("flag_brazil.png", :border=>0), root_path(locale: 'pt-BR') %>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
+  	<% if !current_page?('/') %>
+  		<div class="container mtop">
+  	<% end %>
+
+    <% flash.each do |type, message| %>
+      <div class="alert <%= flash_class type %>">
+        <%= message %>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  	<% if !current_page?('/') %>
+  		</div>
+  	<% end %>
+  </body>
+</html>

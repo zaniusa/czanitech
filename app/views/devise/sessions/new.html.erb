@@ -1,0 +1,47 @@
+<div class="row">	
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+
+		<h3><%= t('login.sign_in') %></h3>
+
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+			<div class="input-group">
+				<span class="input-group-addon">
+				  	<i class="fa fa-envelope fa-md"></i>
+				</span>
+				<%= f.email_field :email, :autofocus => true, class: "form-control", placeholder: (t('login.email')), :required => true %>
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock fa-lg"></i>
+				</span>
+				<%= f.password_field :password, class: "form-control", placeholder: (t('login.password')), :required => true %></div>
+				<br>
+				<% if devise_mapping.rememberable? -%>
+					<div>
+						<%= f.check_box :remember_me %>
+						<%= t('login.remember_me') %>
+					</div>
+				<% end -%>
+				<br>
+			<div>
+				<button type="submit" class="btn btn-success">
+					<i class="fa fa-sign-in fa-lg"></i> <%= t('login.button_sign_in') %>
+				</button>
+			</div>
+			<br>
+		<% end %>
+
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-5">
+      <br>
+      <i class="fa fa-gears fa-4x"></i><br>
+      <h2><%= t('login.all_right') %><br><%= t('login.lets_get') %></h2><br>
+      <i class="fa fa-paperclip fa-4x"></i>
+    </div> 
+</div>

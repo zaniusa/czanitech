@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Chattext:</strong>
+  <%= @customerchat.chattext %>
+</p>
+
+<p>
+  <strong>Chataux:</strong>
+  <%= @customerchat.chataux %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @customerchat.producer_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @customerchat.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_customerchat_path(@customerchat) %> |
+<%= link_to 'Back', customerchats_path %>

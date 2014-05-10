@@ -1,0 +1,21 @@
+
+ <div class="col-md-4" style="float:none; margin:auto">
+	<div class="panel panel-default">
+		<div class="panel-heading"> 
+			<strong>Image</strong>
+		</div>
+		<br>
+		<div class="panel-body">
+			<div> 
+				Image Name: <strong><%= @myimage.image_name %></strong>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group btn-group-sm">
+			  <%= link_to ' Back to Images', myimages_path, class: "btn btn-warning" %>
+			  <%= link_to 'Change Image', edit_myimage_path(@myimage), class: "btn btn-default" %>
+			</div>
+		</div>
+		<br>
+	</div>
+</div>

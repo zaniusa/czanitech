@@ -1,0 +1,290 @@
+<% tAmount = "" %>
+<% hPic = 0 %>
+<%= form_for(@script) do |f| %>
+  <% if @script.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@script.errors.count, "error") %> prohibited this script from being saved:</h2>
+      <ul>
+      <% @script.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><center><b>PROJECT SCRIPT - Steps 1 to 5</b></center></div>
+      <div class="panel-body">
+        <div>
+          <% if current_user.admin? %>
+            <% hPic = 648 %>
+            <div class="field">
+              <p><b>Customer Id:</b></p>
+            </div>
+            <div class="form-group">
+              <%= f.text_field :user_id, value: @script.user_id, placeholder: "Customer Id", class: "form-control", :required => true %>
+            </div>
+          <% else %>
+            <% hPic = 480 %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+          <% end %>
+        </div>
+        <div class="field">
+          <p><b>Enter a name do describe your project:</b><br>
+            <i>Eg: VIDEO PRESENTATION.</i></p>
+        </div>
+        <div class="field">
+          <%= f.text_field :project, placeholder: "Your Project Name", :autofocus => true, class: "form-control", :required => true %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <p><b>Description of your project:</b><br>
+            <i>Eg: How to create a video presentation in 5 steps.</i></p>
+        </div>
+        <div class="field">
+          <%= f.text_area :notes, placeholder: "Notes", class: "form-control", :required => true, :rows => 4 %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <p><b>Step 1: Point the problem:</b><br>
+            <i>Eg: Do you need a video explainer for your company but you don't have too much money to invest on that? Also you don't know how to do it?</i></p>
+        </div>
+        <div class="field">
+          <%= f.text_area :step1, placeholder: "Step 1 - Point the Problem", class: "form-control", :required => true, :rows => 4 %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <p><b>Step 2: Indicate a Solution:</b><br>
+            <i>Eg: Vid55 Tech can do it for you with a professional look, quality images and an affordable prices.</i></p>
+        </div>
+        <div class="field">
+          <%= f.text_area :step2, placeholder: "Step 2 - Point the Problem", class: "form-control", :required => true, :rows => 4 %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <p><b>Step 3: Aggravate the problem:</b><br>
+            <i>Eg: Some companies will charge you hundreds or thousands of dollars to make a simple presentation video. Some other will offer you a "Do it your self", but they don't tell you that you will need the talent for that, otherwise you will waste your time trying with no success.</i></p>
+        </div>
+        <div class="field">
+          <%= f.text_area :step3, placeholder: "Step 3 - Point the Problem", class: "form-control", :required => true, :rows => 4 %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <p><b>Step 4: Show the benefits of your solution:</b><br>
+            <i>Eg: With Vid55 you will just fill out a five steps form and we will contact you and do the creation part for you. After that, we will delivery your Presentation Video ready to be used on your website.</i></p>
+        </div>
+        <div class="field">
+          <%= f.text_area :step4, placeholder: "Step 4 - Benefits of your solution", class: "form-control", :required => true, :rows => 4 %>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+          <p><b>Step 5: Call for action:</b><br>
+            <i>Eg: Create your video explainer today.﻿<br>www.vid55.com</i></p>
+        </div>
+        <div class="field">
+          <%= f.text_area :step5, placeholder: "Step 5 - Call for Action", class: "form-control", :required => true, :rows => 4 %>
+          <br><%= f.submit "Update", class: "btn btn-success" %>
+          <%= link_to "Cancel", scripts_path, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <center><b>View Your Video</b></center>
+      </div>
+      <div class="panel-body">
+        <% if current_user.admin? %>
+          <div class="form-group">
+            <%= f.collection_select(:pymt_id, Pymt.all.order(:order_to_show), :id, :pymt_status, {:prompt => "Select Payment Status"}, :class => "form-control" ) %>
+          </div>
+          <div class="form-group">
+            <%= f.collection_select(:status, Projstatus.all.order(:ordertoshow), :id, :statusname, {:prompt => "Select Project Status"}, :class => "form-control" ) %>
+          </div>
+          <div>
+            <div class="field col-md-4 row">
+              <%= f.text_field :movielinkid1, placeholder: "Movie Id 1", class: "form-control" %>
+            </div>
+            <div class="field col-md-4">
+              <%= f.text_field :movielinkid2, placeholder: "Movie Id 2", class: "form-control" %>
+            </div>
+            <div class="field col-md-4">
+              <%= f.submit "Update", class: "btn btn-success" %>
+            </div>
+            <br>
+          </div>
+          <%= f.hidden_field :usertype, value: "<b>Producer:</b><br>" %>
+        <% else %>
+          <% @pymts.each do |p| %>
+            <div>
+              <% if p.id == @script.pymt_id %>
+                <% tAmount = p.pymt_status %>
+                <center> 
+                <% if p.is_requesting_pymt %>
+                  <div class="alert alert-danger">
+                    <b><big><%= p.pymt_status %></big></b>
+                  </div>
+                  <div>
+                    <a href="#openPymt" class="btn btn-danger col-md-12">Pay Now</a><br><br>
+                  </div>
+                <% else %>
+                  <% hPic = 535 %>  
+                  <div class="alert alert-success">
+                    <b><big><%= p.pymt_status %></big></b>
+                  </div>
+                <% end %>
+                </center>
+              <% end %>
+            </div>
+          <% end %>
+          <% @projstatuses.each do |s| %>
+            <div>
+              <% if s.id == @script.status %>
+                <center class="alert alert-warning"> 
+                  <b><big><%= s.statusname %></big></b>
+                </center>
+              <% end %>
+            </div>
+          <% end %>
+
+          <%= f.hidden_field :usertype, value: "<b>#{current_user.first_name}</b><br>" %>
+        <% end %>
+        <br>
+        <% @movielinks.each do |m| %>
+          <div>
+            <hr>
+            <% if (m.id == @script.movielinkid1) || (m.id == @script.movielinkid2)%>
+              <center>      
+                <%= m.movielink.to_s.html_safe %>
+              </center>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><center><b>MESSAGES</b></center>
+      </div>
+      <div class="panel-body">
+        <div>
+          <%= f.text_area :chat_entry, placeholder: "Enter your message here", class: "form-control" %><br>
+          <%= f.submit "Submit Comment", class: "btn btn-success" %>
+        </div><br>
+        <div class="panel panel-default" style="padding:15px 0px 15px 0px">
+          <div class="field col-md-12" style="height:300px; overflow:auto">
+            <%= simple_format(@script.chat_history) %>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><center><b>MY IMAGES</b></center>
+      </div>
+      <div class="panel-body" style="overflow:auto; height:<%= hPic %>px;">
+        <div class="row">
+          <div class="col-md-12">
+            <a href="#uploadFile" class="btn btn-warning col-md-12">Click to Manage Images (Add/Edit/Delete)</a> 
+          </div>
+          <hr>
+          <% @myimages.each do |myimage| %>
+            <% if myimage.user_id.to_s == @script.user_id.to_s %>
+              <center>
+                <div class="col-md-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <center><%= myimage.image_name %> - <%= myimage.id %></center>
+                    </div>
+                    <div class="panel-body" style="height:320px">
+                      <div class="field">
+                        <div>
+                          <%= image_tag myimage.image_url(:thumb).to_s %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </center>
+              <div id="openImage" class="modalDialog">
+                <div>
+                  <a href="#close" title="Close" class="close">X</a>
+                  <%= image_tag myimage.image_url.to_s %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div id="uploadFile" class="modalDialogUpload">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <div class="col-md-12 row">
+      <center>
+        <div>
+          <h3>You will be leaving this project and redirected to "My Images" page.</h3><br>
+          <i style="color:brown">If you did not save your project, click</i>
+          <a href="#close" style="text-decoration:none; color:red">Cancel</a><i style="color:brown"> and Update it before you proceed!</i>
+        </div><br>
+        <div class="btn-group btn-group-md">
+          <%= link_to 'Go to My Images', '/myimages', class: "btn btn-success" %>
+        </div>
+
+      </center>
+    </div>
+  </div>
+</div>
+
+<div id="openPymt" class="modalDialog">
+  <div>
+    <a href="#close" title="Close" class="close">X</a>
+    <form role="form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" >
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="V8Y79JF2RRHE4">
+        <input type="hidden" name="on0" value="Video Animation">
+        <div class="form-group">
+          <h2>Payment Form</h2>
+        </div>
+        <div class="form-group">
+          <label style="color:red"><%= tAmount %></label>
+          <select name="os0" class="form-control">
+            <option value="Extra work on your project - 10 points.">Extra work on your project - 10 points. $10.00 USD</option>
+            <option value="Extra work on your project - 25 points.">Extra work on your project - 25 points. $25.00 USD</option>
+            <option value="Extra work on your project - 50 points.">Extra work on your project - 50 points. $50.00 USD</option>
+            <option value="Extra work on your project - 100 points.">Extra work on your project - 100 points. $99.00 USD</option>        
+            <option value="With sound over.">With sound over. $199.00 USD</option>
+            <option value="With voice and sound over.">With voice and sound over. $399.00 USD</option>
+          </select>
+        </div>
+        <input type="hidden" name="on1" value="Notes:">
+        <div class="form-group">
+          <label>Notes: </label>
+          <input type="text" name="os1" maxlength="200" class="form-control">
+        </div>
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        <div class="form-group">
+          <h4>You will be redirected to Paypal website.</h4>
+          <h2>Than You!</h2>
+        </div>
+    </form>
+  </div>
+</div>
+
+
+

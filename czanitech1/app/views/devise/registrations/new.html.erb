@@ -1,0 +1,41 @@
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <h3>Sign Up</h3>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.label :company, "Company Name" %><br>
+        <%= f.input :company, input_html: { class: "form-control", placeholder: "Company" }, label_html: { :style => "display: none"} %></br>
+
+        <%= f.label :first_name %><br>
+        <%= f.input :first_name, input_html: { class: "form-control", placeholder: "First Name" }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <%= f.label :last_name, "Last Name" %><br>
+        <%= f.input :last_name, input_html: { class: "form-control", placeholder: "Last Name" }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <%= f.label :email, "Email" %><br>
+        <%= f.input :email, input_html: { class: "form-control", placeholder: "email" }, label_html: { :style => "display: none"}, :required => true %></br>    
+
+        <%= f.label :password, "Password" %><br>   
+        <%= f.input :password, input_html: { class: "form-control", placeholder: "Password" }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <%= f.label :password_confirmation, "Repeat Password" %><br>
+        <%= f.input :password_confirmation, input_html: { class: "form-control", placeholder: "Password Confirmation" }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <div><%= f.submit "Sign up", class: "btn btn-success" %></div>
+      <% end %>
+
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-5">
+      <br><br>
+      <i class="fa fa-thumbs-up fa-5x"></i><br>
+      <h2>Ok...<br>I see you are a winner...<br>Lets do that...</h2><br>
+      <i class="fa fa-film fa-5x"></i>
+    </div> 
+  </div>
+</div>

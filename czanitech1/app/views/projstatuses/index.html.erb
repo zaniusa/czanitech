@@ -1,0 +1,34 @@
+<%= link_to 'Add New Status', new_projstatus_path, class: "btn btn-success" %>
+<br><br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Statuses</div>
+  <!-- Table -->
+  <table class="table table-striped table-bordered">
+
+    <thead>
+      <tr>
+        <th>Show Order</th>
+        <th>Status Name</th>
+        <th><center>Action</center></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projstatuses.each do |projstatus| %>
+        <tr>
+          <td width=10%><%= projstatus.ordertoshow %></td>
+          <td width=70% style="color:<%= projstatus.color %>"><%= projstatus.statusname %></td>
+          <td width=20% style="text-align:center" >
+            <div class="btn-group btn-group-sm">
+              <%= link_to 'Edit', edit_projstatus_path(projstatus), class: "btn btn-success" %>
+              <%= link_to ' Delete', projstatus, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            </div>
+          </td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+<br>

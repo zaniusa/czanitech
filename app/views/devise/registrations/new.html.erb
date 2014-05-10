@@ -1,0 +1,41 @@
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-4">
+      <h3><%= t('register.sign_up') %></h3>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.label :company, (t('register.company_name')) %><br>
+        <%= f.input :company, input_html: { class: "form-control", placeholder: (t('register.company_name')) }, label_html: { :style => "display: none"} %></br>
+
+        <%= f.label :first_name, (t('register.first_name')) %><br>
+        <%= f.input :first_name, input_html: { class: "form-control", placeholder: (t('register.first_name')) }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <%= f.label :last_name, (t('register.last_name')) %><br>
+        <%= f.input :last_name, input_html: { class: "form-control", placeholder: (t('register.last_name')) }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <%= f.label :email, "Email" %><br>
+        <%= f.input :email, input_html: { class: "form-control", placeholder: "email" }, label_html: { :style => "display: none"}, :required => true %></br>    
+
+        <%= f.label :password, (t('register.password')) %><br>   
+        <%= f.input :password, input_html: { class: "form-control", placeholder: (t('register.password')) }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <%= f.label :password_confirmation, (t('register.repeat_password')) %><br>
+        <%= f.input :password_confirmation, input_html: { class: "form-control", placeholder: (t('register.repeat_password')) }, label_html: { :style => "display: none"}, :required => true %></br>
+
+        <div><%= f.submit (t('register.sign_up')), class: "btn btn-success" %></div>
+      <% end %>
+
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-5">
+      <br><br>
+      <i class="fa fa-thumbs-up fa-5x"></i><br>
+      <h2>Ok...<br><%= t('register.i_see_you_are') %><br><%= t('register.lets_do_that') %></h2><br>
+      <i class="fa fa-film fa-5x"></i>
+    </div> 
+  </div>
+</div>

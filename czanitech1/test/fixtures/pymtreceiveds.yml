@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  amount: 9.99
+  project_id: 1
+  control_1: MyString
+  control_2: MyString
+
+two:
+  amount: 9.99
+  project_id: 1
+  control_1: MyString
+  control_2: MyString
